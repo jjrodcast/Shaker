@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER) {
-            val accelaration = getAcceleration(event.values)
-            if (accelaration > GAP && shakeDifference(accelaration)) {
-                lasAcceleration = accelaration
+            val acceleration = getAcceleration(event.values)
+            if (acceleration > GAP && shakeDifference(acceleration)) {
+                lasAcceleration = acceleration
                 message.changeColor()
             }
         } else toast(getString(R.string.sensor_message))
@@ -72,12 +72,12 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     private fun getAcceleration(values: FloatArray): Float {
         val alpha = 0.8f
-        val accelaration = calculateAcceleration(values, alpha)
+        val acceleration = calculateAcceleration(values, alpha)
 
         val currentTime = System.currentTimeMillis()
         if (currentTime - beginTime > intervalTime) {
             beginTime = currentTime
-            return accelaration
+            return acceleration
         }
         return 0f
     }
