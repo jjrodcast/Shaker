@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Shaker</string>
+
+    <string name="sensor_message">Sensor disable</string>
+    <string name="shake_motion">Shake Motion</string>
+    <string name="title">This will change when you shake your phone</string>
+</resources>
